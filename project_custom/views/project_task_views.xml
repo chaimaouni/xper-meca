@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="project_task_view_form_inheritttt" model="ir.ui.view">
+        <field name="name">project.task.view.form.inherit.customm</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_enterprise.project_task_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='child_ids']/tree/field[@name='user_ids']" position="after">
+                <field name="planned_date_begin" />
+                <field name="planned_date_end" />
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- Adding dependency gantt view to Project -->
+<!--    <record id="project_task_inherit_view_gant" model="ir.ui.view">-->
+<!--        <field name="name">project.task.inherit.view.gant</field>-->
+<!--        <field name="model">project.task</field>-->
+<!--        <field name="priority">1</field>-->
+<!--        <field name="inherit_id" ref="project_enterprise.project_task_dependency_view_gantt"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//gantt" position="replace">-->
+<!--                 <gantt date_start="planned_date_begin"-->
+<!--                date_stop="planned_date_end"-->
+<!--                color="project_color"-->
+<!--                string="Planning"-->
+
+<!--                default_group_by="name">-->
+
+<!--                <field name="project_id"/>-->
+<!--                <field name="user_ids"/>-->
+<!--                <field name="user_names"/>-->
+<!--                <field name="partner_id"/>-->
+<!--                <field name="project_color"/>-->
+<!--                <field name="planning_overlap"/>-->
+<!--            </gantt>-->
+
+
+
+
+
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--    </record>-->
+
+
+
+
+
+
+</odoo>

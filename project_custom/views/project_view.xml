@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="view_project_kanban_custom_inheriteddd" model="ir.ui.view">
+            <field name="name">project.project.custom.kanban.inherited</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_kanban_manage_view')]" position="inside">
+                    <div role="menuitem">
+                        <a  name="project_custom.action_view_all_task_by_ppp" type="action">View Gantt</a>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+     <record id="action_view_all_task_by_ppp" model="ir.actions.act_window">
+            <field name="name">Tasks</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">gantt</field>
+            <field name="domain">[('project_id', '=', active_id)]</field>
+            <field name="context">{
+                'group_by': 'parent_id'
+                'show_project_update': True,
+            }</field>
+            <field name="view_id" ref="project_enterprise.project_task_dependency_view_gantt"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No tasks found. Let's create one!
+                </p><p>
+                     To get things done, use activities and status on tasks.<br/>
+                    Chat in real-time or by email to collaborate efficiently.
+                </p>
+            </field>
+        </record>
+
+
+<!--    <record id="project_all_task_gantt_action_view" model="ir.actions.act_window.view">-->
+<!--        <field name="sequence" eval="70"/>-->
+<!--        <field name="view_mode">gantt</field>-->
+<!--        <field name="act_window_id" ref="project_custom.action_view_all_task_by_pp"/>-->
+<!--        <field name="view_id" ref="project_enterprise.project_task_dependency_view_gantt"/>-->
+<!--    </record>-->
+
+
+<!--     <record id="action_view_all_task_customt" model="ir.actions.act_window">-->
+<!--            <field name="name">My Tasks</field>-->
+<!--            <field name="res_model">project.task</field>-->
+<!--            <field name="view_mode">gantt</field>-->
+<!--            <field name="context">{'search_default_project_id': 1, 'all_task': 0}</field>-->
+<!--            <field name="domain">[('display_project_id', '=', active_id)]</field>-->
+<!--            <field name="search_view_id" ref="project.view_task_search_form_extended"/>-->
+<!--            <field name="help" type="html">-->
+<!--                <p class="o_view_nocontent_smiling_face">-->
+<!--                    No tasks found. Let's create one!-->
+<!--                </p><p>-->
+<!--                     To get things done, use activities and status on tasks.<br/>-->
+<!--                    Chat in real-time or by email to collaborate efficiently.-->
+<!--                </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+
+
+
+
+
+
+</odoo>
